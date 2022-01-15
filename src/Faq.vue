@@ -302,10 +302,10 @@ body {
 
   @media (max-width: 600px) {
     padding: 0 24px;
-  }
 
-  @media (min-height: 700px) {
-    align-items: flex-start;
+    @media (min-height: 700px) {
+      align-items: flex-start;
+    }
   }
 }
 </style>
