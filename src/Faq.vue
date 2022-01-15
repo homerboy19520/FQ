@@ -122,10 +122,11 @@ export default {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 600px) {
-    min-height: 770px;
-    padding-top: 270px;
+    min-height: 100%;
+    padding-top: 150px;
   }
 
   &__container {
@@ -255,14 +256,13 @@ export default {
     max-width: none;
     min-width: 0;
     width: 100%;
-    min-height: 346px;
+    min-height: 360px;
   }
 
   @media (max-width: 500px) {
     max-width: none;
     min-width: 0;
     width: 100%;
-    min-height: 400px;
   }
 }
 
@@ -296,15 +296,16 @@ body {
   box-sizing: border-box;
   font-family: "Kumbh Sans", sans-serif;
   background: linear-gradient(180deg, #b068e9 0%, #6463e7 100%);
-  padding: 20px 70px;
+  padding: 30px 70px;
   min-width: 350px;
   min-height: 100vh;
-  overflow: hidden;
 
   @media (max-width: 600px) {
     padding: 0 24px;
-    min-height: 770px;
-    height: 100vh;
+  }
+
+  @media (min-height: 700px) {
+    align-items: flex-start;
   }
 }
 </style>
