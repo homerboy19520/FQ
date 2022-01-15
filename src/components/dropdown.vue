@@ -72,6 +72,7 @@ export default {
   }
 
   &__question {
+    max-width: 90%;
     font-family: "Kumbh Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -92,6 +93,7 @@ export default {
   }
 
   &__answer {
+    max-width: 90%;
     font-family: "Kumbh Sans", sans-serif;
     padding-top: 11px;
     font-weight: 400;

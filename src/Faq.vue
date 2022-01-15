@@ -120,9 +120,13 @@ export default {
 .faq {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  min-height: 100vh;
+
+  @media (max-width: 600px) {
+    min-height: 770px;
+    padding-top: 270px;
+  }
 
   &__container {
     position: relative;
@@ -152,6 +156,10 @@ export default {
 
     @media (max-width: 600px) {
       padding: 138px 24px 0 24px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 138px 16px 0 16px;
     }
   }
 
@@ -193,6 +201,10 @@ export default {
       top: 206px;
       z-index: 3;
       transform: translate(-50%, 0);
+
+      @media (max-width: 980px) {
+        top: 134px;
+      }
     }
 
     &_woman {
@@ -277,14 +289,22 @@ export default {
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
+  box-sizing: border-box;
   font-family: "Kumbh Sans", sans-serif;
   background: linear-gradient(180deg, #b068e9 0%, #6463e7 100%);
-  padding: 0 70px;
-  min-width: 320px;
+  padding: 20px 70px;
+  min-width: 350px;
+  min-height: 100vh;
+  overflow: hidden;
 
   @media (max-width: 600px) {
     padding: 0 24px;
+    min-height: 770px;
+    height: 100vh;
   }
 }
 </style>
