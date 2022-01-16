@@ -98,18 +98,17 @@ export default {
   },
 
   methods: {
-    onClick: function (index) {
-      this.closeDropdowns();
-      if (this.mokData[index].active == true) {
-        this.mokData[index].active = false;
+    onClick: function (indexOfDropdown) {
+      if (this.mokData[indexOfDropdown].active == false) {
+        this.mokData[indexOfDropdown].active = true;
       } else {
-        this.mokData[index].active = true;
+        this.mokData[indexOfDropdown].active = false;
       }
-    },
 
-    closeDropdowns: function () {
-      this.mokData.forEach((item) => {
-        item.active = false;
+      this.mokData.forEach((item, index) => {
+        if (index !== indexOfDropdown) {
+          item.active = false;
+        }
       });
     },
   },

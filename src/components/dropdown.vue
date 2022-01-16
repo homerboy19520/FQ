@@ -47,9 +47,9 @@ export default {
 .dropdown {
   position: relative;
   border-bottom: 1px solid #e8e8ea;
-  padding-bottom: 16px;
   overflow: hidden;
   height: auto;
+  cursor: pointer;
 
   &.m-open {
     .dropdown__icon {
@@ -94,7 +94,7 @@ export default {
   &__answer {
     max-width: 90%;
     font-family: "Kumbh Sans", sans-serif;
-    padding-top: 11px;
+    padding-bottom: 16px;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
@@ -110,6 +110,7 @@ export default {
   &__header {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 16px;
   }
 }
 .answerAnimation-enter-active {
