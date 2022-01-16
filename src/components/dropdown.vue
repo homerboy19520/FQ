@@ -1,6 +1,6 @@
 <template>
-  <div class="dropdown" :class="{ 'm-open': this.isOpen }">
-    <div class="dropdown__header" @click="$emit('click', id)">
+  <div class="dropdown" :class="{ 'm-open': isOpen }">
+    <div class="dropdown__header" @click="$emit('click', index)">
       <p class="dropdown__question">{{ question }}</p>
       <svg
         class="dropdown__icon"
@@ -24,9 +24,8 @@
 <script>
 export default {
   props: {
-    id: {
+    index: {
       type: Number,
-      require: true,
     },
     isOpen: {
       type: Boolean,

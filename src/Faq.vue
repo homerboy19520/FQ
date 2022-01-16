@@ -36,11 +36,11 @@
           <div class="section__container">
             <dropdown
               v-for="(item, index) in mokData"
-              :key="item.id"
-              :id="item.id"
+              :key="index"
+              :index="index"
               :question="item.question"
               :answer="item.answer"
-              :isOpen="state[index]"
+              :isOpen="item.active"
               @click="onClick"
             />
           </div>
@@ -59,59 +59,59 @@ export default {
 
   data() {
     return {
-      initialState: [],
-      state: [],
       mokData: [
         {
           id: 0,
           question: "How many team members can I invite?",
           answer: "You can invite many people",
+          active: false,
         },
         {
           id: 1,
           question: "What is the maximum file upload size?",
           answer:
             "No more than 2GB. All files in your account must fit your allotted storage space.",
+          active: false,
         },
         {
           id: 2,
           question: "How do I reset my password?",
           answer:
             "Log into your personal account and click the button with the text reset",
+          active: false,
         },
         {
           id: 3,
           question: "Can I cancel my subscription?",
           answer: "Of course, you must follow the links and unsubscribe",
+          active: false,
         },
         {
           id: 4,
           question: "Do you provide additional support?",
           answer:
             "Аt the end of the landing page there is a form with support requests",
+          active: false,
         },
       ],
     };
   },
 
   methods: {
-    onClick(index) {
-      let elementState = this.state[index];
-      this.closeAll();
-      if (elementState == true) {
-        this.state[index] == false;
+    onClick: function (index) {
+      this.closeDropdowns();
+      if (this.mokData[index].active == true) {
+        this.mokData[index].active = false;
       } else {
-        this.state[index] = true;
+        this.mokData[index].active = true;
       }
     },
-    closeAll() {
-      this.state = [...this.initialState];
-    },
-  },
 
-  mounted() {
-    this.mokData.forEach(() => this.initialState.push(false));
-    this.closeAll();
+    closeDropdowns: function () {
+      this.mokData.forEach((item) => {
+        item.active = false;
+      });
+    },
   },
 };
 </script>
