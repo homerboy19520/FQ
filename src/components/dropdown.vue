@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown" :class="{ 'm-open': isOpen }">
-    <div class="dropdown__header" @click="$emit('click', index)">
+    <div class="dropdown__header" @click="postAtFaq(index)">
       <p class="dropdown__question">{{ question }}</p>
       <svg
         class="dropdown__icon"
@@ -26,18 +26,24 @@ export default {
   props: {
     index: {
       type: Number,
+      required: true,
     },
     isOpen: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     question: {
       type: String,
-      require: true,
+      required: true,
     },
     answer: {
       type: String,
-      require: true,
+      required: true,
+    },
+  },
+  methods: {
+    postAtFaq: function (index) {
+      this.$emit("click", index);
     },
   },
 };
