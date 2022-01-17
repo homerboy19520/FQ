@@ -1,6 +1,6 @@
 <template>
-  <div class="faq">
-    <div class="faq__container">
+  <div class="faq-wrapper">
+    <div class="faq">
       <img
         class="faq__img faq__img_mobile"
         src="/backgroundWoman-mobile.png"
@@ -36,12 +36,12 @@
           <div class="section__container">
             <dropdown
               v-for="(item, index) in mokData"
+              v-on:click="toggle"
               :key="index"
               :index="index"
               :question="item.question"
               :answer="item.answer"
               :isOpen="item.active"
-              @click="onClick"
             />
           </div>
         </section>
@@ -98,7 +98,7 @@ export default {
   },
 
   methods: {
-    onClick: function (indexOfDropdown) {
+    toggle: function (indexOfDropdown) {
       if (this.mokData[indexOfDropdown].active == false) {
         this.mokData[indexOfDropdown].active = true;
       } else {
@@ -116,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss">
-.faq {
+.faq-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -127,40 +127,40 @@ export default {
     min-height: 100%;
     padding-top: 150px;
   }
+}
 
-  &__container {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
+.faq {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 65px 95px 30px 0;
+  width: 100%;
+  height: 100%;
+  max-width: 920px;
+  min-height: 510px;
+  box-sizing: border-box;
+  border-radius: 23px;
+  box-shadow: 0px 50px 50px -20px rgba(53, 18, 122, 0.497159);
+  background-color: #fff;
+
+  @media (max-width: 980px) {
+    padding: 24px 67px 0 0;
+    min-height: 380px;
+  }
+
+  @media (max-width: 910px) {
+    justify-content: center;
     align-items: flex-start;
-    padding: 65px 95px 30px 0;
-    width: 100%;
-    height: 100%;
-    max-width: 920px;
-    min-height: 510px;
-    box-sizing: border-box;
-    border-radius: 23px;
-    box-shadow: 0px 50px 50px -20px rgba(53, 18, 122, 0.497159);
-    background-color: #fff;
+    padding: 20px 0 0 0;
+  }
 
-    @media (max-width: 980px) {
-      padding: 24px 67px 0 0;
-      min-height: 380px;
-    }
+  @media (max-width: 600px) {
+    padding: 138px 24px 0 24px;
+  }
 
-    @media (max-width: 910px) {
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 0 0 0;
-    }
-
-    @media (max-width: 600px) {
-      padding: 138px 24px 0 24px;
-    }
-
-    @media (max-width: 600px) {
-      padding: 138px 16px 0 16px;
-    }
+  @media (max-width: 600px) {
+    padding: 138px 16px 0 16px;
   }
 
   &__img {
