@@ -36,7 +36,7 @@
           <div class="section__container">
             <dropdown
               v-for="(item, index) in mokData"
-              v-on:click="toggle"
+              @toggle="toggle"
               :key="index"
               :index="index"
               :question="item.question"

@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown" :class="{ 'm-open': isOpen }">
-    <div class="dropdown__header" @click="postAtFaq(index)">
+    <div class="dropdown__header" @click="postAtFq(index)">
       <p class="dropdown__question">{{ question }}</p>
       <svg
         class="dropdown__icon"
@@ -42,8 +42,8 @@ export default {
     },
   },
   methods: {
-    postAtFaq: function (index) {
-      this.$emit("click", index);
+    postAtFq: function (index) {
+      this.$emit("toggle", index);
     },
   },
 };
